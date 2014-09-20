@@ -36,27 +36,27 @@ body {
 }
 
 .cube-side.front {
-  background-color: darkorchid;
+  background-color: #6C08B2;
   transform: rotateX(0deg) rotateY(0deg) translateZ(120px);
 }
-
+.cube-side.back {
+  background-color: #A525FF;
+  transform: rotateX(-180deg) rotateY(0deg) translateZ(120px);
+}
 .cube-side.bottom {
-  background-color: cornflowerblue;
+  background-color: #09CC5B;
   transform: rotateX(-90deg) rotateY(0deg) translateZ(120px);
 }
 .cube-side.top {
-  background-color: tomato;
+  background-color: #09CC5B;
   transform: rotateX(90deg) rotateY(0deg) translateZ(120px);
 }
 .cube-side.right {
-  background-color: yellow;
+  background-color: #FFCF3C;
   transform: rotateX(0deg) rotateY(90deg) translateZ(120px);
 }
-.cube-side.back {
-  background-color: slategrey;
-  transform: rotateX(-180deg) rotateY(0deg) translateZ(120px);
-}
+
 .cube-side.left {
-  background-color: seagreen;
+  background-color: #FFA100;
   transform: rotateX(0deg) rotateY(270deg) translateZ(120px);
 }
