@@ -6,14 +6,88 @@
     <script src='./cube.js'></script>
   </head>
   <body>
+    
+    <code class='transform-display'>
+      transform: rotateY(0deg) rotateX(0deg);
+    </code>
     <div class='outer-cube'>
-      <div class='inner-cube'>
-        <div class='cube-side back'></div>
-        <div class='cube-side left'></div>
-        <div class='cube-side right'></div>
-        <div class='cube-side top'></div>
-        <div class='cube-side bottom'></div>
-        <div class='cube-side front'></div>
+      <div class='cube-side front'>
+        You're looking at a cube. Scroll around a bit.
+        
+        <code class='transform'>
+          transform: rotateX(0deg) rotateY(0deg) translateZ(120px);
+        </code>
+      </div>
+      
+      <div class='cube-side bottom clear'>
+        <span 
+          style='background:rgba(9, 204, 91, 1);
+          padding:10px;border:thin solid white;'>
+          The cube is made of 6 <code>div</code> 
+          elements. <br><br>They are positioned in 3d space using CSS 
+          <code>transform</code>: <code>rotateX</code>, 
+          <code>rotateY</code>, and <code>translateZ</code>
+        </span>
+        
+        <code class='transform'>
+          transform: rotateX(-90deg) rotateY(0deg) translateZ(120px);
+        </code>
+      </div>
+      
+      <div class='cube-side back'>
+        <span>
+          It rotates by using JavaScript to update
+          <code>transform:</code> <code>rotateX()</code> and 
+          <code>rotateY()</code> on the parent element.
+        </span>
+        
+        <code class='transform'>
+          transform: rotateX(-180deg) rotateY(0deg) translateZ(120px);
+        </code>
+      </div>
+      
+      <div class='cube-side top'>
+        <span>
+          Hover over a side to reveal its specific 
+          <code>transform</code> property.
+        </span>
+        
+        <code class='transform'>
+          transform: rotateX(90deg) rotateY(0deg) translateZ(120px);
+        </code>
+      </div>
+      
+      <div class='cube-side left'>
+        <span>
+          Isn't it odd that scrolling left-right feels natural...
+          <br><br>
+          ...while scrolling up-down seems to be tied to an axis?
+          <br><br>
+          <span style='font-size:0.8em'>(see reverse side)</span>
+        </span>
+        
+        <code class='transform'>
+          transform: rotateX(0deg) rotateY(270deg) translateZ(120px);
+        </code>
+      </div>
+      
+      <div class='cube-side right'>
+        <span>
+          The <b>order</b> of <code>rotateX()</code> and 
+          <code>rotateY()</code> determines which axis is dominant. 
+          Whichever comes first will feel natural.
+          <br><br>
+          <span style='font-size:0.8em'>(see reverse side)</span>
+          <br><br>
+          <button class='switch'>
+            click here
+          </button> 
+          to change the order, and see what I mean :)
+        </span>
+
+        <code class='transform'>
+          transform: rotateX(0deg) rotateY(90deg) translateZ(120px);
+        </code>
       </div>
     </div>
   </body>

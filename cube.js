@@ -1,16 +1,10 @@
-// have internal preserve-3d thing
-// each time, on release, set internal thing
-// and reset outer scroll thing
-
 $(function() {
-  // grab elements as array, rather than as NodeList
-  var $innerCube = $('.inner-cube');
   var $outerCube = $('.outer-cube');
+  var $transformDisplay = $('.transform-display')
   var rotateY = 0, rotateX = 0, lastScrollTop = 0, lastScrollLeft = 0;
-  var lastResetY = 0, lastResetX = 0;
+  var switchOrder = false;
   
-  $(window).on('scroll', function(event) {
-    
+  var scrollCube = function() {
     var top = $(window).scrollTop();
     var left = $(window).scrollLeft() * -1;
     
@@ -23,22 +17,41 @@ $(function() {
       rotateY += left;
     }
     
-    console.log('left: ' + left);console.log('top: ' + top);console.log('')
     // top + => scrolling up
     // top - => scrolling down
     // left + => scrolling right
     // left - => scrolling left
     
-    // order matters here - which axis is preserved is decided by which rotation happens first
-
-    // $outerCube.css('transform', 'rotateX(' + rotateX + 
-          // 'deg) rotateY('+ rotateY +'deg)');
-
-    $outerCube.css('transform', 'rotateY('+ rotateY +
-          'deg) rotateX(' + rotateX + 'deg) ');
-
+    // Order matters here - which axis is preserved is decided by which 
+    // rotation happens first. Switch the order of rotateY and rotateX 
+    // to see what happens!
+    var cssString;
+    
+    if(switchOrder) {
+      cssString = 'transform: ' + 
+            'rotateX(' + rotateX + 'deg) ' +
+            'rotateY('+ rotateY + 'deg);'
+    } else {
+      cssString = 'transform: ' + 
+            'rotateY('+ rotateY + 'deg) ' + 
+            'rotateX(' + rotateX + 'deg);'
+    }
+    
+    $outerCube.attr('style', cssString);
+    $transformDisplay.html(cssString);
     
     lastScrollTop = top;lastScrollLeft = left;
+  }
+  
+  $('button.switch').on('click', function() {
+    switchOrder = !switchOrder;
+    $transformDisplay.addClass('switch');
+    setTimeout(function() {
+      $transformDisplay.removeClass('switch');
+      scrollCube();
+    }, 0);
   })
+  
+  $(window).on('scroll', scrollCube);
 })
 
