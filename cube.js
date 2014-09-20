@@ -46,7 +46,18 @@ $(function() {
   $('button.switch').on('click', function() {
     switchOrder = !switchOrder;
     $transformDisplay.addClass('switch');
+    
+    if(switchOrder) {
+      $('#lr').html('up-down');
+      $('#ud').html('left-right');
+    } else {
+      $('#lr').html('left-right');
+      $('#ud').html('up-down');
+    }
+    
     scrollCube();
+    
+    
     setTimeout(function() {
       $transformDisplay.removeClass('switch');
     }, 0);
