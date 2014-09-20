@@ -10,22 +10,10 @@ $(function() {
   var lastResetY = 0, lastResetX = 0;
   
   $(window).on('scroll', function(event) {
-    clearTimeout($.data(this, 'scrollTimer'));
-    $.data(this, 'scrollTimer', setTimeout(function() {
-      $innerCube.css('transform', 'rotateY(' + lastResetY + rotateY + 
-          'deg) rotateX('+ lastResetX + rotateX +'deg)');
-      lastResetY = lastResetY + rotateY;lastResetX = lastResetX + rotateX;
-      rotateY = 0;rotateX = 0;
-      $outerCube.css('transform', 'rotateY(' + rotateY + 
-          'deg) rotateX('+ rotateX +'deg)');
-          
-      console.log('re-setting');
-    }, 30));
     
     var top = $(window).scrollTop();
     var left = $(window).scrollLeft() * -1;
     
-    // var lastRotateX = rotateX, lastRotateY = rotateY;
     if((top > lastScrollTop && top > 0) || 
           (top < lastScrollTop && top < 0)) {
       rotateX += top;
@@ -35,12 +23,21 @@ $(function() {
       rotateY += left;
     }
     
-    // if(lastRotate !== lastScroll)
+    console.log('left: ' + left);console.log('top: ' + top);console.log('')
+    // top + => scrolling up
+    // top - => scrolling down
+    // left + => scrolling right
+    // left - => scrolling left
     
-    console.log(top);console.log(left);
+    // order matters here - which axis is preserved is decided by which rotation happens first
+
+    // $outerCube.css('transform', 'rotateX(' + rotateX + 
+          // 'deg) rotateY('+ rotateY +'deg)');
+
+    $outerCube.css('transform', 'rotateY('+ rotateY +
+          'deg) rotateX(' + rotateX + 'deg) ');
+
     
-    $outerCube.css('transform', 'rotateY(' + rotateY + 
-          'deg) rotateX('+ rotateX +'deg)');
     lastScrollTop = top;lastScrollLeft = left;
   })
 })
