@@ -2,7 +2,6 @@ body {
   perspective: 800px;
   font-family: Helvetica, sans-serif;
   color: white;
-/*  overflow:scroll;*/
 }
 
 span.nanners {
@@ -18,8 +17,13 @@ span.nanners {
 .transform-display.switch {
   transition: 0s;
   color: darkslategrey;
-  outline: 1px dashed red;
-  box-shadow: 0 0 2px yellow;
+  text-shadow: yellow 0 0 2px ;
+}
+
+.cube-holder {
+  transform: translateZ(-120px);
+  position: absolute;top:0;left:0;bottom:0;right:0;
+  perspective:800px;
 }
 
 .outer-cube {
@@ -50,17 +54,16 @@ span.nanners {
   position:absolute;
   bottom:0;
   right:100%;
-  color: lightgrey;
+  color: white;
   font-size: 0.7em;
   white-space:nowrap;
   display:none;
-  opacity:0;
-  transition: opacity .5s ease, display 0s linear;
+  transition:color 2s linear;
 }
 
 .cube-side:hover code.transform {
   display:block;
-  opacity: 1;
+  color: lightgrey;
 }
 
 .cube-side.front {
@@ -73,7 +76,7 @@ span.nanners {
 }
 .cube-side.bottom {
 /*  background-color: #09CC5B;*/
-  background-color: rgba(9, 204, 91, .5);
+  background-color: rgba(9, 204, 91, .6);
   transform: rotateX(-90deg) rotateY(0deg) translateZ(120px);
 }
 .cube-side.top {
@@ -88,7 +91,4 @@ span.nanners {
 .cube-side.left {
   background-color: #FFA100;
   transform: rotateX(0deg) rotateY(270deg) translateZ(120px);
-}
-.cube-side.clear {
-/*  background-color: rgba(0, 0, 0, 0) !important;*/
 }

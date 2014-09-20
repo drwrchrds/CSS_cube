@@ -46,9 +46,9 @@ $(function() {
   $('button.switch').on('click', function() {
     switchOrder = !switchOrder;
     $transformDisplay.addClass('switch');
+    scrollCube();
     setTimeout(function() {
       $transformDisplay.removeClass('switch');
-      scrollCube();
     }, 0);
   })
   
