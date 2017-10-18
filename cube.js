@@ -4,9 +4,9 @@ $(function() {
   var rotateY = 0, rotateX = 0, lastScrollTop = 0, lastScrollLeft = 0;
   var switchOrder = false;
   
-  var scrollCube = function() {
-    var top = $(window).scrollTop();
-    var left = $(window).scrollLeft() * -1;
+  var scrollCube = function(event) {
+    var top = event.originalEvent.wheelDeltaY;
+    var left = event.originalEvent.wheelDeltaX;
     
     if((top > lastScrollTop && top > 0) || 
           (top < lastScrollTop && top < 0)) {
