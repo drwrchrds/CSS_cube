@@ -10,11 +10,11 @@ $(function() {
     
     if((top > lastScrollTop && top > 0) || 
           (top < lastScrollTop && top < 0)) {
-      rotateX += top;
+      rotateX += top / 2.0;
     }
     if((left > lastScrollLeft && left > 0) || 
           (left < lastScrollLeft && left < 0)) {
-      rotateY += left;
+      rotateY += left / 2.0;
     }
     
     // top + => scrolling up
