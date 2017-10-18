@@ -62,7 +62,7 @@ $(function() {
       $transformDisplay.removeClass('switch');
     }, 0);
   })
-  
-  $(window).on('scroll', scrollCube);
+  window.scrollCube = scrollCube;  
+  $(window).on('wheel', scrollCube);
 })
 
